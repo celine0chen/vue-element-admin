@@ -11,6 +11,8 @@ import componentsRouter from './modules/components'
 import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
+import Hoc from '@/views/hoc'
+
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -79,7 +81,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: '列表作业', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -183,7 +185,30 @@ export const asyncRoutes = [
       }
     ]
   },
-
+  {
+    path: '/hoc',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/hoc/index'),
+        name: 'hoc',
+        meta: { title: 'hoc', icon: 'icon', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/renderless',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/renderless/index'),
+        name: 'renderless',
+        meta: { title: 'renderless表单作业', icon: 'icon', noCache: true }
+      }
+    ]
+  },
   /** when your routing map is too long, you can split it into small modules **/
   componentsRouter,
   chartsRouter,
