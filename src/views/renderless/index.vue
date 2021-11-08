@@ -3,7 +3,7 @@
     <div class="row1">
       <svalidate #default="{ validate}" :rules="textRules" :value="value1">
         活动名称
-        <textarea v-model="value1" @blur="validate"></textarea>
+        <textarea v-model="value1" @blur="validate" />
       </svalidate>
       <!-- <svalidate #default="{ validate}" :rules="rules" :value="value">
         <el-input v-model="value" @blur="validate"></el-input>
@@ -13,13 +13,13 @@
     <div class="row2">
       <svalidate #default="{ validate}" :rules="textRules" :value="value2">
         活动区域
-        <el-select v-model="value2" @blur="validate" placeholder="请选择">
+        <el-select v-model="value2" placeholder="请选择" @blur="validate">
           <el-option
             v-for="item in options"
             :key="item.value"
             :label="item.label"
             :value="item.value"
-          ></el-option>
+          />
         </el-select>
       </svalidate>
     </div>
@@ -27,7 +27,7 @@
       <svalidate #default="{ validate }" :rules="empRules" :value="value3">
         <div class="block">
           <span class="demonstration">活动时间</span>
-          <el-date-picker v-model="value3" @blur="validate" type="datetime" placeholder="选择日期时间"></el-date-picker>
+          <el-date-picker v-model="value3" type="datetime" placeholder="选择日期时间" @blur="validate" />
         </div>
       </svalidate>
     </div>
@@ -36,17 +36,17 @@
         即时配送
         <el-switch
           v-model="value4"
-          @blur="validate"
           active-color="#13ce66"
           inactive-color="#ff4949"
-        ></el-switch>
+          @blur="validate"
+        />
       </svalidate>
     </div>
     <div class="row5">
       <svalidate #default="{ validate }" :value="value5" :rules="textRules">
         活动性质
         <el-checkbox-group v-model="value5" @change="validate">
-          <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+          <el-checkbox v-for="city in cities" :key="city" :label="city">{{ city }}</el-checkbox>
         </el-checkbox-group>
       </svalidate>
     </div>
@@ -60,23 +60,23 @@
     <div class="row7">
       <svalidate #default="{ validate }" :rules="textRules" :value="value7">
         活动形式
-        <textarea v-model="value7" @blur="validate"></textarea>
+        <textarea v-model="value7" @blur="validate" />
       </svalidate>
     </div>
-    <ResetButton name="提交"></ResetButton>
+    <ResetButton name="提交" />
   </div>
 </template>
 
 <script>
-import svalidate from "./svalidate.vue";
-import ResetButton from "@/components/ResetButton";
+import svalidate from './svalidate.vue'
+import ResetButton from '@/components/ResetButton'
 
 const cityOptions = [
-  "美食/餐厅线上活动",
-  "地推活动",
-  "线下主题活动",
-  "单纯品牌曝光"
-];
+  '美食/餐厅线上活动',
+  '地推活动',
+  '线下主题活动',
+  '单纯品牌曝光'
+]
 export default {
   components: {
     svalidate,
@@ -84,64 +84,64 @@ export default {
   },
   data() {
     return {
-      value1: "",
-      value2: "",
-      value3: "",
-      value4: "",
-      value5: "",
-      value7: "",
+      value1: '',
+      value2: '',
+      value3: '',
+      value4: '',
+      value5: '',
+      value7: '',
       options: [
         {
-          value: "选项1",
-          label: "黄金糕"
+          value: '选项1',
+          label: '黄金糕'
         },
         {
-          value: "选项2",
-          label: "双皮奶"
+          value: '选项2',
+          label: '双皮奶'
         },
         {
-          value: "选项3",
-          label: "蚵仔煎"
+          value: '选项3',
+          label: '蚵仔煎'
         },
         {
-          value: "选项4",
-          label: "龙须面"
+          value: '选项4',
+          label: '龙须面'
         },
         {
-          value: "选项5",
-          label: "北京烤鸭"
+          value: '选项5',
+          label: '北京烤鸭'
         }
       ],
       rules: [
         {
           test: function(value) {
-            return /\d+/.test(value);
+            return /\d+/.test(value)
           },
-          message: "请输入一个数字"
+          message: '请输入一个数字'
         }
       ],
       textRules: [
         {
           test: function(value) {
-            return value;
+            return value
           },
-          message: "请输入一个非空的值"
+          message: '请输入一个非空的值'
         }
       ],
       empRules: [
         {
           test: function(value) {
-            return value;
+            return value
           },
-          message: "请选择选项"
+          message: '请选择选项'
         }
       ],
       value5: [],
       cities: cityOptions,
       radio: null
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

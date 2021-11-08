@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import HocFunc from "./custominput/hoc";
-import CustomInput from "./custominput/index";
+import HocFunc from './custominput/hoc'
+import CustomInput from './custominput/index'
 
-const HocCustomCom = HocFunc(CustomInput);
+const HocCustomCom = HocFunc(CustomInput)
 
 export default {
   components: {
@@ -18,18 +18,18 @@ export default {
   },
   data() {
     return {
-      value: "",
+      value: '',
       rules: [
         {
           test: function(value) {
-            return /\d+/.test(value);
+            return /\d+/.test(value)
           },
-          message: "请输入一个数字"
+          message: '请输入一个数字'
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style>

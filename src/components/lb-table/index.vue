@@ -10,30 +10,37 @@
 
 <template>
   <div class="lb-table">
-    <el-table ref="elTable"
+    <el-table
+      ref="elTable"
       v-bind="$attrs"
-      v-on="$listeners"
       :data="data"
-      :span-method="this.merge ? this.mergeMethod : this.spanMethod">
-      <lb-column v-bind="$attrs"
+      :span-method="this.merge ? this.mergeMethod : this.spanMethod"
+      v-on="$listeners"
+    >
+      <lb-column
         v-for="(item, index) in column"
         :key="index"
-        :column="item">
-      </lb-column>
+        v-bind="$attrs"
+        :column="item"
+      />
     </el-table>
-    <el-pagination class="lb-table-pagination"
+    <el-pagination
       v-if="pagination"
+      class="lb-table-pagination"
       v-bind="$attrs"
+      :style="{ 'margin-top': paginationTop, 'text-align': paginationAlign }"
       v-on="$listeners"
       @current-change="paginationCurrentChange"
-      :style="{ 'margin-top': paginationTop, 'text-align': paginationAlign }">
-    </el-pagination>
+    />
   </div>
 </template>
 
 <script>
 import LbColumn from './lb-column'
 export default {
+  components: {
+    LbColumn
+  },
   props: {
     column: Array,
     data: Array,
@@ -52,55 +59,60 @@ export default {
     },
     merge: Array
   },
-  components: {
-    LbColumn
-  },
-  data () {
+  data() {
     return {
       mergeLine: {},
       mergeIndex: {}
     }
   },
-  created () {
-    this.getMergeArr(this.data, this.merge)
-  },
   computed: {
-    dataLength () {
+    dataLength() {
       return this.data.length
     }
   },
+  watch: {
+    merge() {
+      this.getMergeArr(this.data, this.merge)
+    },
+    dataLength() {
+      this.getMergeArr(this.data, this.merge)
+    }
+  },
+  created() {
+    this.getMergeArr(this.data, this.merge)
+  },
   methods: {
-    clearSelection () {
+    clearSelection() {
       this.$refs.elTable.clearSelection()
     },
-    toggleRowSelection (row, selected) {
+    toggleRowSelection(row, selected) {
       this.$refs.elTable.toggleRowSelection(row, selected)
     },
-    toggleAllSelection () {
+    toggleAllSelection() {
       this.$refs.elTable.toggleAllSelection()
     },
-    toggleRowExpansion (row, expanded) {
+    toggleRowExpansion(row, expanded) {
       this.$refs.elTable.toggleRowExpansion(row, expanded)
     },
-    setCurrentRow (row) {
+    setCurrentRow(row) {
       this.$refs.elTable.setCurrentRow(row)
     },
-    clearSort () {
+    clearSort() {
       this.$refs.elTable.clearSort()
     },
-    clearFilter (columnKey) {
+    clearFilter(columnKey) {
       this.$refs.elTable.clearFilter(columnKey)
     },
-    doLayout () {
+    doLayout() {
       this.$refs.elTable.doLayout()
     },
-    sort (prop, order) {
+    sort(prop, order) {
       this.$refs.elTable.sort(prop, order)
     },
-    paginationCurrentChange (val) {
+    paginationCurrentChange(val) {
       this.$emit('p-current-change', val)
     },
-    getMergeArr (tableData, merge) {
+    getMergeArr(tableData, merge) {
       if (!merge) return
       this.mergeLine = {}
       this.mergeIndex = {}
@@ -122,7 +134,7 @@ export default {
         })
       })
     },
-    mergeMethod ({ row, column, rowIndex, columnIndex }) {
+    mergeMethod({ row, column, rowIndex, columnIndex }) {
       const index = this.merge.indexOf(column.property)
       if (index > -1) {
         const _row = this.mergeIndex[this.merge[index]][rowIndex]
@@ -132,14 +144,6 @@ export default {
           colspan: _col
         }
       }
-    }
-  },
-  watch: {
-    merge () {
-      this.getMergeArr(this.data, this.merge)
-    },
-    dataLength () {
-      this.getMergeArr(this.data, this.merge)
     }
   }
 }

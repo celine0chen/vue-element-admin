@@ -1,15 +1,15 @@
 <template lang="">
   <div class="main">
-  <span class="label"> {{labelName}}</span>
-  <input class="input" v-bind:placeholder="inputName">
-  <input class="input2" v-bind:placeholder="inputName2">
+    <span class="label"> {{ labelName }}</span>
+    <input class="input" :placeholder="inputName">
+    <input class="input2" :placeholder="inputName2">
   </div>
 </template>
 <script>
 export default {
-  name: "LabelInputx2",
-  props: ["labelName", "inputName", "inputName2"]
-};
+  name: 'LabelInputx2',
+  props: ['labelName', 'inputName', 'inputName2']
+}
 </script>
 <style scoped>
 .main {

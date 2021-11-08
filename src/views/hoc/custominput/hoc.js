@@ -1,4 +1,4 @@
-import { Divider } from "element-ui"
+import { Divider } from 'element-ui'
 
 const HocValidateComFunc = (Component) => ({
   name: `hoc-${Component.name}`,

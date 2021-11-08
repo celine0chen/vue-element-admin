@@ -8,9 +8,9 @@
 </template>
 <script>
 export default {
-  name: "LabelSelect",
-  props: ["labelName", "options"]
-};
+  name: 'LabelSelect',
+  props: ['labelName', 'options']
+}
 </script>
 <style scoped>
 .main {

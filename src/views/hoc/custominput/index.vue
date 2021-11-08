@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-input v-model="value" @blur="onBlur"></el-input>
+    <el-input v-model="value" @blur="onBlur" />
   </div>
 </template>
 

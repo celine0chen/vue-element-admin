@@ -1,17 +1,17 @@
 <template>
   <div>
     <div class="row1">导师列表</div>
-    <div class="line"></div>
+    <div class="line" />
 
     <div class="row2">
-      <label-input labelName="昵称" inputName="昵称 "></label-input>
-      <LabelSelect labelName="所属学科" :options="options"></LabelSelect>
-      <label-input labelName="职位" inputName="职位 "></label-input>
-      <label-inputx2 labelName="工作年限：" inputName="起" inputName2="止"></label-inputx2>
+      <label-input label-name="昵称" input-name="昵称 " />
+      <LabelSelect label-name="所属学科" :options="options" />
+      <label-input label-name="职位" input-name="职位 " />
+      <label-inputx2 label-name="工作年限：" input-name="起" input-name2="止" />
 
-      <label-input labelName="手机号" inputName="手机号"></label-input>
-      <SearchButton name="搜索"></SearchButton>
-      <ResetButton name="重置"></ResetButton>
+      <label-input label-name="手机号" input-name="手机号" />
+      <SearchButton name="搜索" />
+      <ResetButton name="重置" />
     </div>
     <div class="row3">
       <lb-table
@@ -20,22 +20,22 @@
         :row-class-name="rowClassName"
         height="300"
         border
-      ></lb-table>
+      />
     </div>
   </div>
 </template>
 
 <script>
-import LabelInput from "@/components/LabelInput";
-import LabelInputx2 from "@/components/LabelInputx2";
-import LabelSelect from "@/components/LabelSelect";
-import SearchButton from "@/components/SearchButton";
-import ResetButton from "@/components/ResetButton";
-import LbTable from "@/components/lb-table";
-import { getTest } from "@/api/test";
+import LabelInput from '@/components/LabelInput'
+import LabelInputx2 from '@/components/LabelInputx2'
+import LabelSelect from '@/components/LabelSelect'
+import SearchButton from '@/components/SearchButton'
+import ResetButton from '@/components/ResetButton'
+import LbTable from '@/components/lb-table'
+import { getTest } from '@/api/test'
 
 export default {
-  name: "TinymceDemo",
+  name: 'TinymceDemo',
   components: {
     LabelInput,
     LabelInputx2,
@@ -46,55 +46,55 @@ export default {
   },
   data() {
     return {
-      options: ["请选择", "数学", "化学", "语文"],
+      options: ['请选择', '数学', '化学', '语文'],
       tableData: {
         column: [
           {
-            type: "selection"
+            type: 'selection'
           },
           {
-            prop: "name",
-            label: "昵称"
+            prop: 'name',
+            label: '昵称'
           },
           {
-            prop: "phone",
-            label: "手机号"
+            prop: 'phone',
+            label: '手机号'
           },
           {
-            prop: "tname",
-            label: "真实姓名"
+            prop: 'tname',
+            label: '真实姓名'
           },
           {
-            prop: "subject",
-            label: "所属学科"
+            prop: 'subject',
+            label: '所属学科'
           },
           {
-            prop: "position",
-            label: "职位"
+            prop: 'position',
+            label: '职位'
           },
           {
-            prop: "year",
-            label: "工作年限"
+            prop: 'year',
+            label: '工作年限'
           },
           {
-            prop: "inputtime",
-            label: "录入时间"
+            prop: 'inputtime',
+            label: '录入时间'
           },
           {
-            prop: "op",
-            label: "操作"
+            prop: 'op',
+            label: '操作'
           }
         ],
         data: []
       }
-    };
+    }
   },
   created() {
-    const self = this;
+    const self = this
     const items = getTest().then(res => {
       // debugger;
-      self.tableData.data = res.data.items;
-    });
+      self.tableData.data = res.data.items
+    })
     // console.log(items);
     // .data.items;
     // this.data.tableData.data = items;
@@ -102,14 +102,14 @@ export default {
   methods: {
     rowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
-        return "warning-row";
+        return 'warning-row'
       } else if (rowIndex === 3) {
-        return "success-row";
+        return 'success-row'
       }
-      return "";
+      return ''
     }
   }
-};
+}
 </script>
 
 <style scoped>

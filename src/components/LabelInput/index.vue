@@ -1,14 +1,14 @@
 <template lang="">
   <div class="main">
-  <div class="label"> {{labelName}}</div>
-  <input class="input" v-bind:placeholder="inputName">
+    <div class="label"> {{ labelName }}</div>
+    <input class="input" :placeholder="inputName">
   </div>
-</template> 
+</template>
 <script>
 export default {
-  name: "LabelInput",
-  props: ["labelName", "inputName"]
-};
+  name: 'LabelInput',
+  props: ['labelName', 'inputName']
+}
 </script>
 <style scoped>
 .main {

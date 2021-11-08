@@ -1,13 +1,13 @@
 <template lang="">
-  <button class="button"> 
- <svg-icon icon-class="arrow-right" class-name="card-panel-icon" />{{name}}
- </button>
-</template> 
+  <button class="button">
+    <svg-icon icon-class="arrow-right" class-name="card-panel-icon" />{{ name }}
+  </button>
+</template>
 <script>
 export default {
-  name: "ResetButton",
-  props: ["name"]
-};
+  name: 'ResetButton',
+  props: ['name']
+}
 </script>
 <style scoped>
 .button {

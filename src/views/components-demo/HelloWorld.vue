@@ -6,14 +6,14 @@
       :row-class-name="rowClassName"
       height="300"
       border
-    ></lb-table>
+    />
   </div>
 </template>
 
 <script>
-import LbTable from "@/components/lb-table.vue";
+import LbTable from '@/components/lb-table.vue'
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   components: {
     LbTable
   },
@@ -22,69 +22,69 @@ export default {
       tableData: {
         column: [
           {
-            prop: "date",
-            label: "日期"
+            prop: 'date',
+            label: '日期'
           },
           {
-            label: "配送信息"
+            label: '配送信息'
           }
         ],
         data: [
           {
-            date: "2016-05-03",
-            name: "王小虎1",
-            province: "上海",
-            city: "普陀区",
-            address: "上海市普陀区金沙江路 1518 弄",
+            date: '2016-05-03',
+            name: '王小虎1',
+            province: '上海',
+            city: '普陀区',
+            address: '上海市普陀区金沙江路 1518 弄',
             zip: 200333
           },
           {
-            date: "2016-05-02",
-            name: "王小虎2",
-            province: "上海",
-            city: "普陀区",
-            address: "上海市普陀区金沙江路 1518 弄",
+            date: '2016-05-02',
+            name: '王小虎2',
+            province: '上海',
+            city: '普陀区',
+            address: '上海市普陀区金沙江路 1518 弄',
             zip: 200333
           },
           {
-            date: "2016-05-02",
-            name: "王小虎3",
-            province: "上海",
-            city: "普陀区",
-            address: "上海市普陀区金沙江路 1518 弄",
+            date: '2016-05-02',
+            name: '王小虎3',
+            province: '上海',
+            city: '普陀区',
+            address: '上海市普陀区金沙江路 1518 弄',
             zip: 200333
           },
           {
-            date: "2016-05-02",
-            name: "王小虎4",
-            province: "上海",
-            city: "普陀区",
-            address: "上海市普陀区金沙江路 1518 弄",
+            date: '2016-05-02',
+            name: '王小虎4',
+            province: '上海',
+            city: '普陀区',
+            address: '上海市普陀区金沙江路 1518 弄',
             zip: 200333
           },
           {
-            date: "2016-05-02",
-            name: "王小虎5",
-            province: "上海",
-            city: "普陀区",
-            address: "上海市普陀区金沙江路 1518 弄",
+            date: '2016-05-02',
+            name: '王小虎5',
+            province: '上海',
+            city: '普陀区',
+            address: '上海市普陀区金沙江路 1518 弄',
             zip: 200333
           }
         ]
       }
-    };
+    }
   },
   methods: {
     rowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
-        return "warning-row";
+        return 'warning-row'
       } else if (rowIndex === 3) {
-        return "success-row";
+        return 'success-row'
       }
-      return "";
+      return ''
     }
   }
-};
+}
 </script>
 
 <style>
