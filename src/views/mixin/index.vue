@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>mixin的使用</div>
+    <div>mixin的使用2</div>
     <input type="text" @blur="blur">
     {{ errmsg }}
   </div>
