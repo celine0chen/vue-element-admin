@@ -12,6 +12,7 @@ import chartsRouter from './modules/charts'
 import tableRouter from './modules/table'
 import nestedRouter from './modules/nested'
 import Hoc from '@/views/hoc'
+import Mixin from '@/views/mixin'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -193,6 +194,18 @@ export const asyncRoutes = [
         component: () => import('@/views/hoc/index'),
         name: 'hoc',
         meta: { title: 'hoc', icon: 'icon', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/mixin',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/mixin/index'),
+        name: 'mixin',
+        meta: { title: 'mixin', icon: 'icon', noCache: true }
       }
     ]
   },

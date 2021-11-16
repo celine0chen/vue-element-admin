@@ -19,7 +19,6 @@
     :width="column.width"
     :min-width="column.minWidth"
     :fixed="column.fixed"
-    v-on="$listeners"
     :render-header="column.renderHeader"
     :sortable="column.sortable || false"
     :sort-method="column.sortMethod"
@@ -39,6 +38,7 @@
     :filter-multiple="column.filterMultiple"
     :filter-method="column.filterMethod"
     :filtered-value="column.filteredValue"
+    v-on="$listeners"
   >
 
     <template

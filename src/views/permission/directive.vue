@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <switch-roles @change="handleRolesChange" />
-    <div class="list" v-permission="['editor']">
+    <div v-permission="['editor']" class="list">
       <div>
         <div class="row1">导师列表</div>
         <div class="line" />
@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="form" v-permission="['admin']">
+    <div v-permission="['admin']" class="form">
       <div>
         <div class="row1">
           <svalidate #default="{ validate}" :rules="textRules" :value="value1">
@@ -104,26 +104,26 @@
 </template>
 
 <script>
-import permission from "@/directive/permission/index.js"; // 权限判断指令
-import checkPermission from "@/utils/permission"; // 权限判断函数
-import SwitchRoles from "./components/SwitchRoles";
-import LabelInput from "@/components/LabelInput";
-import LabelInputx2 from "@/components/LabelInputx2";
-import LabelSelect from "@/components/LabelSelect";
-import SearchButton from "@/components/SearchButton";
-import ResetButton from "@/components/ResetButton";
-import LbTable from "@/components/lb-table";
-import { getTest } from "@/api/test";
-import svalidate from "@/views/renderless/svalidate.vue";
+import permission from '@/directive/permission/index.js' // 权限判断指令
+import checkPermission from '@/utils/permission' // 权限判断函数
+import SwitchRoles from './components/SwitchRoles'
+import LabelInput from '@/components/LabelInput'
+import LabelInputx2 from '@/components/LabelInputx2'
+import LabelSelect from '@/components/LabelSelect'
+import SearchButton from '@/components/SearchButton'
+import ResetButton from '@/components/ResetButton'
+import LbTable from '@/components/lb-table'
+import { getTest } from '@/api/test'
+import svalidate from '@/views/renderless/svalidate.vue'
 
 const cityOptions = [
-  "美食/餐厅线上活动",
-  "地推活动",
-  "线下主题活动",
-  "单纯品牌曝光"
-];
+  '美食/餐厅线上活动',
+  '地推活动',
+  '线下主题活动',
+  '单纯品牌曝光'
+]
 export default {
-  name: "TinymceDemo",
+  name: 'TinymceDemo',
   components: {
     LabelInput,
     LabelInputx2,
@@ -137,112 +137,112 @@ export default {
   directives: { permission },
   data() {
     return {
-      value1: "",
-      value2: "",
-      value3: "",
-      value4: "",
-      value5: "",
-      value6: "",
-      value7: "",
+      value1: '',
+      value2: '',
+      value3: '',
+      value4: '',
+      value5: '',
+      value6: '',
+      value7: '',
       options: [
         {
-          value: "选项1",
-          label: "黄金糕"
+          value: '选项1',
+          label: '黄金糕'
         },
         {
-          value: "选项2",
-          label: "双皮奶"
+          value: '选项2',
+          label: '双皮奶'
         },
         {
-          value: "选项3",
-          label: "蚵仔煎"
+          value: '选项3',
+          label: '蚵仔煎'
         },
         {
-          value: "选项4",
-          label: "龙须面"
+          value: '选项4',
+          label: '龙须面'
         },
         {
-          value: "选项5",
-          label: "北京烤鸭"
+          value: '选项5',
+          label: '北京烤鸭'
         }
       ],
       rules: [
         {
           test: function(value) {
-            return /\d+/.test(value);
+            return /\d+/.test(value)
           },
-          message: "请输入一个数字"
+          message: '请输入一个数字'
         }
       ],
       textRules: [
         {
           test: function(value) {
-            return value;
+            return value
           },
-          message: "请输入一个非空的值"
+          message: '请输入一个非空的值'
         }
       ],
       empRules: [
         {
           test: function(value) {
-            return value;
+            return value
           },
-          message: "请选择选项"
+          message: '请选择选项'
         }
       ],
       value5: [],
       cities: cityOptions,
       radio: null,
       key: 1, // 为了能每次切换权限的时候重新初始化指令
-      options: ["请选择", "数学", "化学", "语文"],
+      options: ['请选择', '数学', '化学', '语文'],
       tableData: {
         column: [
           {
-            type: "selection"
+            type: 'selection'
           },
           {
-            prop: "name",
-            label: "昵称"
+            prop: 'name',
+            label: '昵称'
           },
           {
-            prop: "phone",
-            label: "手机号"
+            prop: 'phone',
+            label: '手机号'
           },
           {
-            prop: "tname",
-            label: "真实姓名"
+            prop: 'tname',
+            label: '真实姓名'
           },
           {
-            prop: "subject",
-            label: "所属学科"
+            prop: 'subject',
+            label: '所属学科'
           },
           {
-            prop: "position",
-            label: "职位"
+            prop: 'position',
+            label: '职位'
           },
           {
-            prop: "year",
-            label: "工作年限"
+            prop: 'year',
+            label: '工作年限'
           },
           {
-            prop: "inputtime",
-            label: "录入时间"
+            prop: 'inputtime',
+            label: '录入时间'
           },
           {
-            prop: "op",
-            label: "操作"
+            prop: 'op',
+            label: '操作'
           }
         ],
         data: []
       }
-    };
+    }
   },
   created() {
-    const self = this;
+    const self = this
     const items = getTest().then(res => {
       // debugger;
-      self.tableData.data = res.data.items;
-    });
+      self.tableData.data = res.data.items
+    })
     // console.log(items);
     // .data.items;
     // this.data.tableData.data = items;
@@ -250,18 +250,18 @@ export default {
   methods: {
     rowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
-        return "warning-row";
+        return 'warning-row'
       } else if (rowIndex === 3) {
-        return "success-row";
+        return 'success-row'
       }
-      return "";
+      return ''
     },
     checkPermission,
     handleRolesChange() {
-      this.key++;
+      this.key++
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

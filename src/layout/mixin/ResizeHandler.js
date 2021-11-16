@@ -40,6 +40,10 @@ export default {
           store.dispatch('app/closeSideBar', { withoutAnimation: true })
         }
       }
+    },
+    validate() {
+      alert('hello from mixin!')
+      // return true;
     }
   }
 }

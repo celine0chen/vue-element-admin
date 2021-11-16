@@ -11,7 +11,7 @@
 
     <div class="right-menu">
       <template v-if="device!=='mobile'">
-        <div class="msg" v-permission="['admin']">
+        <div v-permission="['admin']" class="msg">
           <ResetButton name="信息" />
         </div>
         <search id="header-search" class="right-menu-item" />
@@ -27,7 +27,7 @@
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar" />
+          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -53,17 +53,17 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import Breadcrumb from "@/components/Breadcrumb";
-import Hamburger from "@/components/Hamburger";
-import ErrorLog from "@/components/ErrorLog";
-import Screenfull from "@/components/Screenfull";
-import SizeSelect from "@/components/SizeSelect";
-import Search from "@/components/HeaderSearch";
-import permission from "@/directive/permission/index.js"; // 权限判断指令
-import checkPermission from "@/utils/permission"; // 权限判断函数
-import SwitchRoles from "@/views/permission/components/SwitchRoles";
-import ResetButton from "@/components/ResetButton";
+import { mapGetters } from 'vuex'
+import Breadcrumb from '@/components/Breadcrumb'
+import Hamburger from '@/components/Hamburger'
+import ErrorLog from '@/components/ErrorLog'
+import Screenfull from '@/components/Screenfull'
+import SizeSelect from '@/components/SizeSelect'
+import Search from '@/components/HeaderSearch'
+import permission from '@/directive/permission/index.js' // 权限判断指令
+import checkPermission from '@/utils/permission' // 权限判断函数
+import SwitchRoles from '@/views/permission/components/SwitchRoles'
+import ResetButton from '@/components/ResetButton'
 
 export default {
   components: {
@@ -79,18 +79,18 @@ export default {
   directives: { permission },
   key: 1,
   computed: {
-    ...mapGetters(["sidebar", "avatar", "device"])
+    ...mapGetters(['sidebar', 'avatar', 'device'])
   },
   methods: {
     toggleSideBar() {
-      this.$store.dispatch("app/toggleSideBar");
+      this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
-      await this.$store.dispatch("user/logout");
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`);
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

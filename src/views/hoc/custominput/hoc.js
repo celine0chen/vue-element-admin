@@ -16,7 +16,7 @@ const HocValidateComFunc = (Component) => ({
       const validateStatus = this.rules.reduce((pre, cur) => {
         const check = cur && cur.test && cur.test(this.value)
         self.errMsg = check ? '' : cur.message
-        debugger
+        // debugger
         return pre && check
       }, true)
       return validateStatus
